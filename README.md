@@ -8,11 +8,22 @@ This is the list of commands which I know in Python language
 a, b, c = 12, 13, 14
 d = e = f = 15
 ```
+We can use single quotes inside a string written with double quotes, and vice versa.
+```
+text1 = "I thought to myself 'This changes everything'"
+text2 = 'I thought to myself "This changes everything"'
+```
 To use a double quote within a string written with double quotes, *escape* the inner quotes by prefixing them with the `\` character.
 
 ```
-text1 = "I thought to myself \"This changes everything\""
-text2 = "I thought to myself \'This changes everything\'"
+text3 = "I thought to myself \"This changes everything\""
+text4 = 'I thought to myself \'This changes everything\''
+```
+
+Strings created using single or double quotes must begin and end on the same line. To create multiline strings, use three single quotes `'''` or three double quotes `"""` to begin and end the string. Line breaks are represented using the newline character `\n`.
+
+```
+text5 =
 ```
 ## Lambda Function
 

@@ -1,6 +1,19 @@
 # Python Commands
 This is the list of commands which I know in Python language
 
+## Variables & Data Types
+
+> Storing multiple data in one line
+```
+a, b, c = 12, 13, 14
+d = e = f = 15
+```
+To use a double quote within a string written with double quotes, *escape* the inner quotes by prefixing them with the `\` character.
+
+```
+text1 = "I thought to myself \"This changes everything\""
+text2 = "I thought to myself \'This changes everything\'"
+```
 ## Lambda Function
 
 ```

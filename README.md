@@ -23,8 +23,17 @@ text4 = 'I thought to myself \'This changes everything\''
 Strings created using single or double quotes must begin and end on the same line. To create multiline strings, use three single quotes `'''` or three double quotes `"""` to begin and end the string. Line breaks are represented using the newline character `\n`.
 
 ```
-text5 =
+text5 = """I thought to myself
+This changes everything"""
 ```
+
+```
+type(10/3)   //float
+type(10/2)   //float
+type(10//2)  //int
+```
+
+> Booleans are automatically converted to `int` when used in arithmetic operations. `True` are converted to `1` and `False` are converted to `0`.
 ## Lambda Function
 
 ```

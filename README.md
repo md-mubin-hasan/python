@@ -34,6 +34,24 @@ type(10//2)  //int
 ```
 
 > Booleans are automatically converted to `int` when used in arithmetic operations. `True` are converted to `1` and `False` are converted to `0`.
+
+Only the following values are evaluated as `False`, (*falsy* values):
+* The `False` itself
+* The integer `0`
+* The float `0.0`
+* The empty value `None`
+* The empty text `""`
+* The empty list `[]`
+* The empty tuple `()`
+* The empty dictionary `{}`
+* The empty set `set()`
+* The empty range `range(0)`
+
+Any value in `Python` can be converted to a boolean using `bool()` function
+
+```
+text6 = bool(range(10))  //True is stored in text6
+```
 ## Lambda Function
 
 ```

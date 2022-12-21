@@ -52,6 +52,13 @@ Any value in `Python` can be converted to a boolean using `bool()` function
 ```
 text6 = bool(range(10))  //True is stored in text6
 ```
+
+> The None type includes a single value `None`, used to indicate the absence of a value. `None` has the type `NoneType`. It is often used to declare a variable whose value may be assigned later
+
+```
+nothing = None
+text7 = type(nothing) //stores "NoneType" in text7
+```
 ## Lambda Function
 
 ```

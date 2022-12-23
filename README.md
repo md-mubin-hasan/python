@@ -59,6 +59,13 @@ text6 = bool(range(10))  //True is stored in text6
 nothing = None
 text7 = type(nothing) //stores "NoneType" in text7
 ```
+
+> String
+```
+multiline_string = """a
+b"""
+text8 = list(multiline_string)   \\stores ['a','\n','b']
+```
 ## Lambda Function
 
 ```

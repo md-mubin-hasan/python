@@ -66,6 +66,17 @@ multiline_string = """a
 b"""
 text8 = list(multiline_string)   \\stores ['a','\n','b']
 ```
+
+> **Methods**: Methods are functions associated with data types and are accessed using the `.` notation e.g. `variable_name.method()` or `"a string".method()`. Methods are a powerful technique for associating common operations with values of specific data types.
+
+```
+.lower()
+.upper()
+.capitalize() #changes the first character to uppercase
+.replace("sample1", "sample2")   # sample1 will be replaced by sample2, it only returns the value once, it does not change the orignal text fully
+.split("anysymbol") # this outputs a list
+.strip()  # removes whitespace in the beginning and ending of the string 
+```
 ## Lambda Function
 
 ```

@@ -70,12 +70,22 @@ text8 = list(multiline_string)   # stores ['a','\n','b']
 > **Methods**: Methods are functions associated with data types and are accessed using the `.` notation e.g. `variable_name.method()` or `"a string".method()`. Methods are a powerful technique for associating common operations with values of specific data types.
 
 ```
-.lower()
-.upper()
-.capitalize() # changes the first character to uppercase
-.replace("sample1", "sample2")   # sample1 will be replaced by sample2, it only returns the value once, it does not change the orignal text fully
-.split("anysymbol") # this outputs a list
-.strip()  # removes whitespace in the beginning and ending of the string 
+cost_of_ice_bag = 1.25
+profit_margin = .2
+number_of_bags = 500
+text9 = """If a grocery store sells ice bags at $ {} per bag, with a profit margin of {} %, 
+then the total profit it makes by selling {} ice bags is $ {}."""
+
+text10 = text9.lower()
+text10 = text9.upper()
+text10 = text9.capitalize() # changes the first character to uppercase
+text10 = text9.replace("sample1", "sample2")   # sample1 will be replaced by sample2, it only returns the value once, it does not change the orignal text fully
+text10 = text9.split("anysymbol") # this outputs a list
+text10 = text9.strip()  # removes whitespace in the beginning and ending of the string 
+text10 = text9.format(parameter1, parameter2, ...) # See the example below, placeholder `{}` in text9 is neccessary
+
+text10 = text9.format(cost_of_ice_bag, profit_margin*100, number_of_bags, total_profit)
+print(text10)
 ```
 ## Lambda Function
 

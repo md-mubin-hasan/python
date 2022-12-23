@@ -28,9 +28,9 @@ This changes everything"""
 ```
 
 ```
-type(10/3)   //float
-type(10/2)   //float
-type(10//2)  //int
+type(10/3)   # float
+type(10/2)   # float
+type(10//2)  # int
 ```
 
 > Booleans are automatically converted to `int` when used in arithmetic operations. `True` are converted to `1` and `False` are converted to `0`.
@@ -50,21 +50,21 @@ Only the following values are evaluated as `False`, (*falsy* values):
 Any value in `Python` can be converted to a boolean using `bool()` function
 
 ```
-text6 = bool(range(10))  //True is stored in text6
+text6 = bool(range(10))  # True is stored in text6
 ```
 
 > The None type includes a single value `None`, used to indicate the absence of a value. `None` has the type `NoneType`. It is often used to declare a variable whose value may be assigned later
 
 ```
 nothing = None
-text7 = type(nothing) //stores "NoneType" in text7
+text7 = type(nothing) # stores "NoneType" in text7
 ```
 
 > String
 ```
 multiline_string = """a
 b"""
-text8 = list(multiline_string)   \\stores ['a','\n','b']
+text8 = list(multiline_string)   # stores ['a','\n','b']
 ```
 
 > **Methods**: Methods are functions associated with data types and are accessed using the `.` notation e.g. `variable_name.method()` or `"a string".method()`. Methods are a powerful technique for associating common operations with values of specific data types.

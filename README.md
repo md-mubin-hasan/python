@@ -72,7 +72,7 @@ text8 = list(multiline_string)   # stores ['a','\n','b']
 ```
 .lower()
 .upper()
-.capitalize() #changes the first character to uppercase
+.capitalize() # changes the first character to uppercase
 .replace("sample1", "sample2")   # sample1 will be replaced by sample2, it only returns the value once, it does not change the orignal text fully
 .split("anysymbol") # this outputs a list
 .strip()  # removes whitespace in the beginning and ending of the string 
@@ -101,19 +101,19 @@ a, b = random.randint(2,10), random.randint(0,10)
 result1 = "a" if a>b else "b"
 print(result)
 ```
-([on_false], [on_true]) [expression]  //Using tuples
+([on_false], [on_true]) [expression]  # Using tuples
 ```
 result2 = (b,a) [a>b]
 result3 = (f"b:{b}", f"a:{a}")[a>b]
 ```
-{True:[on_true],False:[on_false]}[expression]  //Using dictionaries
+{True:[on_true],False:[on_false]}[expression]  # Using dictionaries
 ```
 result3 = {True:f"b:{b}",False:f"a:{a}"}[a<b]
 print(result3)
 result4 = {False:f"b:{b}",True:f"a:{a}"}[a<b]
 print(result4)
 ```
-(lambda: [on_true], lambda: [on_false])[expression]()   //Using lambda function
+(lambda: [on_true], lambda: [on_false])[expression]()   # Using lambda function
 ```
 result5 = (lambda: f"a:{a}", lambda: f"b:{b}")[a>b]()
 print(result5)

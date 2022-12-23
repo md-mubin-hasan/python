@@ -87,6 +87,15 @@ text10 = text9.format(parameter1, parameter2, ...) # See the example below, plac
 text10 = text9.format(cost_of_ice_bag, profit_margin*100, number_of_bags, total_profit)
 print(text10)
 ```
+
+> List
+
+```
+list1 = ['a','b','c','d']
+text11 = list1.pop(2)  # text11 stores 'd' but deletes the value from list1
+
+list2 = list1.copy()  # Changing the content of list2 will not affect the content of list1
+```
 ## Lambda Function
 
 ```

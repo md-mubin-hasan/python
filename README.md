@@ -96,6 +96,22 @@ text11 = list1.pop(2)  # text11 stores 'd' but deletes the value from list1
 
 list2 = list1.copy()  # Changing the content of list2 will not affect the content of list1
 ```
+
+> Tuple
+
+```
+single_element_tuple1 = 4,      # it stores as (4,)
+single_element_tuple1 = (3,)
+not_tuple = (4)                 # it stores as 4
+a_tuple = 34, True, None, "Mubin", 23.3, "Moriom"
+
+point = (3,4)
+point_x, point_y = point        # point_x = 3 and point_y = 4
+
+# Converting a list into a tuple and vice verse, use tuple() and list() respectively
+```
+
+
 ## Lambda Function
 
 ```

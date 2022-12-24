@@ -121,7 +121,29 @@ point_x, point_y = point        # point_x = 3 and point_y = 4
 # Converting a list into a tuple and vice verse, use tuple() and list() respectively
 ```
 
+> Dictionaries
 
+```
+# Dictionaries can also be created using dict function
+
+person1 = dict( name = 'Mubin', gender = 'male', age = 20, married = False)
+print(person1)          #  outputs {'name' : 'Mubin', 'gender' : 'male', 'age' : 20, 'married' : False}
+
+# We can use get method to access the value associated with a key
+text = person1.get('name')
+```
+To remove a key and associated value from a dictionary, use the `pop` method
+```
+text = person1.pop('age')   # stores the value associated with the key 'age'
+```
+
+```
+list1 = person1.keys()      # it stores dict_keys(['name', 'gender', 'age', 'married'])
+list2 = person1.values()    # it stores dict_values(['Mubin', 'male', 20, False])
+list3 = person1.items()     # it stores dict_items([('name', 'Mubin'), ('gender', 'male'), ('age', 20), ('married', False)])
+
+list1 = list(list1)         # now we can access the values from list1 treating it as a list, like list1[0] outputs 'name'
+```
 ## Lambda Function
 
 ```

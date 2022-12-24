@@ -1,6 +1,16 @@
 # Python Commands
 This is the list of commands which I know in Python language
 
+## Help
+
+```
+help(variable_name.methodname)
+```
+> Jupyter Notebook / Jupyterlab
+
+```
+?variable_name.methodname
+```
 ## Variables & Data Types
 
 > Storing multiple data in one line

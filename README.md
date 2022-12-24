@@ -96,6 +96,9 @@ text10 = text9.format(parameter1, parameter2, ...) # See the example below, plac
 
 text10 = text9.format(cost_of_ice_bag, profit_margin*100, number_of_bags, total_profit)
 print(text10)
+
+print("""If a grocery store sells ice bags at $ {} per bag, with a profit margin of {} %, 
+then the total profit it makes by selling {} ice bags is $ {}.""".format(cost_of_ice_bag, profit_margin*100, number_of_bags, total_profit))
 ```
 
 > List
@@ -143,6 +146,27 @@ list2 = person1.values()    # it stores dict_values(['Mubin', 'male', 20, False]
 list3 = person1.items()     # it stores dict_items([('name', 'Mubin'), ('gender', 'male'), ('age', 20), ('married', False)])
 
 list1 = list(list1)         # now we can access the values from list1 treating it as a list, like list1[0] outputs 'name'
+```
+
+> Pass Statement
+
+```
+if num % 2 == 0:
+    pass                        # it does nothing
+elif num % 3 == 0:
+    print("Divisible by 3")
+```
+
+> Enumerate function
+
+```
+a_list = ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday']
+
+for i in range(len(a_list)):
+    print('The value at position {} is {}.'.format(i, a_list[i]))
+
+for i, val in enumerate(a_list):
+    print('The value at position {} is {}.'.format(i, val))
 ```
 ## Lambda Function
 

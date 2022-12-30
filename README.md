@@ -267,3 +267,58 @@ try:
 except:
     print("Something went wrong when opening the file")
 ```
+
+> `is` keyword is used to test whether two variables belong to the same object. The test will return `True` if the two objects are same else it will return `False` even if the two objects are 100% equal. Note: the `==` operator is used to test if the two objects are same.
+
+```
+a = 10
+b = 10
+
+if a is b:
+    print(True)
+else:
+    print(False)
+
+# Prints True
+
+x = 'Mubin'
+y = 'Mubin'
+
+if x is y:
+    print(True)
+else:
+    print(False)
+
+# Prints True
+
+ab = ['a', 'b', 'c']
+ac = ['a', 'b', 'c']
+
+if ab is ac:
+    print(True)
+else:
+    print(False)
+
+# Prints False
+
+print(ab is ac) # outputs False
+print(ab == ac) # outputs True
+```
+
+> Raising an exception
+
+```
+x = -1
+
+if x < 0:
+    raise Exception("Sorry, no numbers below zero!")
+
+y = 'hello'
+
+if not type(y) is int:
+    raise TypeError("Only integers are allowed!")
+```
+
+## Documenting functions using Docstrings
+
+> 

@@ -105,7 +105,7 @@ then the total profit it makes by selling {} ice bags is $ {}.""".format(cost_of
 
 ```
 list1 = ['a','b','c','d']
-text11 = list1.pop(2)  # text11 stores 'd' but deletes the value from list1
+text11 = list1.pop(3)  # text11 stores 'd' but deletes the value from list1
 
 list2 = list1.copy()  # Changing the content of list2 will not affect the content of list1
 ```
@@ -213,4 +213,57 @@ print(result5)
 ```
 result6 = "Less than or equal to zero" if a<=0 else "Between 0 and 3" if a>0 and a<3 else "Greater than 2"
 print(result6)
+```
+
+## Exception Handling
+```
+try:
+    print(x)
+except:
+    print("An exception occurred")
+```
+
+> NameError
+```
+try:
+    print(x)
+except NameError:
+    print("Variable is not defined")
+except:
+    print("Something else went wrong!")
+```
+
+> `else` keyword is used to define a block of code to be executed if no errors were raised
+```
+try:
+    print("Hello!")
+except:
+    print("Something went wrong!")
+else:
+    print("Nothing went wrong!")
+```
+
+> `finally` keyword is used to define a block of code to be executed regardless if the `try` block raises an error or not
+```
+try:
+    print(x)
+except:
+    print("Something went wrong!")
+finally:
+    print("The try-except is finished!")
+```
+
+> An example of trying to open and write an file that is not writable
+
+```
+try:
+    f = open("demofile.txt")
+    try:
+        f.write("Moriomubin")
+    except:
+        print("Something went wrong when writing to the file!")
+    finally:
+        f.close()
+except:
+    print("Something went wrong when opening the file")
 ```

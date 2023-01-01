@@ -344,3 +344,13 @@ def loan_emi(amount, duration, rate, down_payment=0):
 help(loan_emi)
 # Outputs the docstring
 ```
+
+## OS and Filesystem
+
+```
+import os
+
+os.cwd()
+os.listdir()
+
+```

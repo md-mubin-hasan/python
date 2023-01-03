@@ -12,6 +12,13 @@ help(variable_name.methodname)
 ```
 ?variable_name.methodname
 ```
+
+## Distinction between *statement* and *expression* in **Python**
+
+> **Statements:** A statement is an instruction that can be executed. Every line of code we have written so far is a statement e.g. assigning a variable, calling a function, conditional statements using `if`, `else`, and `elif`, loops using `for` and `while` etc.
+
+> **Expressions:** An expression is some code that evaluates to a value. Examples include values of different data types, arithmetic expressions, conditions, variables, function calls, conditional expressions, etc.
+
 ## Variables & Data Types
 
 > Storing multiple data in one line

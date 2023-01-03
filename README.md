@@ -330,6 +330,15 @@ if not type(y) is int:
     raise TypeError("Only integers are allowed!")
 ```
 
+## Functions
+
+> **Named Arguments:** Python allows to enter named arguments when calling a function
+```
+def emi_calculate(amount, duration):
+    return amount/duration
+
+loan_calculate(amount = 12000, duration = 12)
+```
 ## Documenting functions using Docstrings
 
 > A docstring describes what the function does, and provide some explanations about the arguments. It is used by the `help` function.

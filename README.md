@@ -365,6 +365,17 @@ help(loan_emi)
 # Outputs the docstring
 ```
 
+## Modules
+
+```
+import math
+a = math.ceil(1.2)
+```
+
+```
+from math import ceil
+a = ceil(1.2)
+```
 ## OS and Filesystem
 
 ```

@@ -400,3 +400,16 @@ os.listdir()
 ```
 !pip install numpy --upgrade --quiet
 ```
+
+> Array
+
+```
+import numpy as np
+a = np.array([23,32,22,33])
+b = np.array([.4,.5,.6,.7])
+
+ab = a*b
+ab_dot = np.dot(a,b)  # Dot product of the arrays a and b
+ab_sum = ab.sum()     # Same as ab_sum = (a*b).sum()
+
+```

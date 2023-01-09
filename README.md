@@ -412,4 +412,18 @@ ab = a*b
 ab_dot = np.dot(a,b)  # Dot product of the arrays a and b
 ab_sum = ab.sum()     # Same as ab_sum = (a*b).sum()
 
+type(a)     # numpy.ndarray
+a.shape     # (4,)
+a.dtype     # dtype('int32')
+
+aa = np.array([
+                [12, 13, 14, 15],
+                [23, 24, 25, 26],
+                [34, 35, 36, 37],
+                [45, 46, 47, 48]
+                ])
+aa.shape    # (4,4)
+
+aaa_matrixmul1 = np.matmul(aa, a)
+aaa_matrixmul2 = aa @ a
 ```

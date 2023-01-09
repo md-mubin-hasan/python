@@ -179,6 +179,14 @@ for i in range(len(a_list)):
 for i, val in enumerate(a_list):
     print('The value at position {} is {}.'.format(i, val))
 ```
+
+> Pair
+
+```
+for x, y in zip(x_cordinate, y_coordinate):
+    result += x^2 + y^2
+```
+
 ## Lambda Function
 
 ```

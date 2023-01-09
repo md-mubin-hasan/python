@@ -393,3 +393,10 @@ os.cwd()
 os.listdir()
 
 ```
+
+## NumPy
+
+> To install numpy 
+```
+!pip install numpy --upgrade --quiet
+```

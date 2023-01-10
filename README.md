@@ -389,8 +389,13 @@ a = ceil(1.2)
 ```
 import os
 
-os.cwd()
-os.listdir()
+os.cwd()            # Checking current present directory
+os.listdir()        # Checking the list of files in a directory
+os.listdir('.')     # checking the relative path
+
+os.makedir('./foldername', exist_ok = True)         # Creating a new directory in the present directory. If exist_ok is False (the default), a FileExistsError is raised if the target directory already exists.
+a = 'foldername' in os.listdir('.')                 # Stores True if the folder name is present in the present directory
+b = os.listdir('./foldername')                      # Absolute path, list of files inside a directory of present directory. If that directory is empty, empty list is stored in b
 
 ```
 
@@ -437,6 +442,13 @@ urllib.request.urlretrieve(
     'climate.txt')
 ```
 
+```
+from urllib.request import urlretrieve
+
+urlretrieve('https://gist.github.com/BirajCoder/a4ffcb76fd6fb221d76ac2ee2b8584e9/raw/4054f90adfd361b7aa4255e99c2e874664094cea/climate.csv', 'climate.txt')
+
+# urlretrieve('https://sample.url', './demofolder/climate.txt')
+```
 > Converting txt into array
 
 ```

@@ -468,6 +468,9 @@ concated3 = np.concatenate((a,b), axis = None)  #a and b does not need to be in 
 ```
 
 > Mathematics: `np.sum`, `np.exp`, `np.round`, arithemtic operators
+
 > Array manipulation: `np.reshape`, `np.stack`, `np.concatenate`, `np.split`
+
 > Linear Algebra: `np.matmul`, `np.dot`, `np.transpose`, `np.eigvals`
+
 > Statistics: `np.mean`, `np.median`, `np.std`, `np.max`

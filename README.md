@@ -393,12 +393,114 @@ os.cwd()            # Checking current present directory
 os.listdir()        # Checking the list of files in a directory
 os.listdir('.')     # checking the relative path
 
-os.makedir('./foldername', exist_ok = True)         # Creating a new directory in the present directory. If exist_ok is False (the default), a FileExistsError is raised if the target directory already exists.
+os.makedirs('./foldername', exist_ok = True)         # Creating a new directory in the present directory. If exist_ok is False (the default), a FileExistsError is raised if the target directory already exists.
 a = 'foldername' in os.listdir('.')                 # Stores True if the folder name is present in the present directory
 b = os.listdir('./foldername')                      # Absolute path, list of files inside a directory of present directory. If that directory is empty, empty list is stored in b
 
 ```
+> Reading from a file 
 
+```
+file1 = open('filename.filetype', mode = 'r')       # Filename can have absolute path starting with './', there are different modes, check those with help function
+file1_contents = file1.read()
+print(file1_contents)
+file1.close()                   # After closing the file, file1.read() will not work
+```
+
+> Closing files automatically using `with`
+
+```
+with open('./demofolder/filename.txt', mode = 'r') as file2:
+    file2_contents = file2.read()
+    print(file2_contents)
+```
+
+> Reading a file line by line
+
+```
+with open('./demofolder/filename.txt', mode = 'r') as file2:
+    file2_contents = file2.readlines()                              # Each line is stored as an element of a list
+    print(file2_contents)
+```
+
+> Processing data from files
+
+```
+def parse_headers(header_line):
+    return header_line.strip().split(',')
+
+def parse_values(data_line):
+    values = []
+    for item in data_line.strip().split(','):
+        if item == '':
+            values.append(0.0)
+        else:
+            try:
+                values.append(float(item))
+            except ValueError:
+                values.append(item)
+    return values
+
+def create_item_dict(values, headers):
+    result = {}
+    for value, header in zip(values, headers):
+        result[header] = value
+    return result
+
+def read_csv(path):
+    result = []
+    
+    # Open the file in read mode
+    with open(path, 'r') as f:
+        # Get a list of lines
+        lines = f.readlines()
+        
+        # Parse the header
+        headers = parse_headers(lines[0])
+        
+        # Loop over the remaining lines
+        for data_line in lines[1:]:
+            # Parse the values
+            values = parse_values(data_line)
+            
+            # Create a dictionary using values & headers
+            item_dict = create_item_dict(values, headers)
+            
+            # Add the dictionary to the result
+            result.append(item_dict)
+    return result
+
+def write_csv(items, path):
+
+    # Open the file in write mode
+    with open(path, 'w') as f:
+    
+        # Return if there's nothing to write
+        if len(items) == 0:
+            return
+        
+        # Write the headers in the first line
+        headers = list(items[0].keys())
+        f.write(','.join(headers) + '\n')
+        
+        # Write one item per line
+        for item in items:
+            values = []
+            for header in headers:
+                values.append(str(item.get(header, "")))
+            f.write(','.join(values) + "\n")
+```
+
+```
+with open('./data/emis2.txt', 'w') as f:
+    for loan in loans2:
+        f.write('{},{},{},{},{}\n'.format(
+            loan['amount'], 
+            loan['duration'], 
+            loan['rate'], 
+            loan['down_payment'], 
+            loan['emi']))
+```
 ## NumPy
 
 > To install numpy 

@@ -474,3 +474,5 @@ concated3 = np.concatenate((a,b), axis = None)  #a and b does not need to be in 
 > Linear Algebra: `np.matmul`, `np.dot`, `np.transpose`, `np.eigvals`
 
 > Statistics: `np.mean`, `np.median`, `np.std`, `np.max`
+
+> NumPy Documentation : [numpy][https://numpy.org/doc/stable/reference/routines.html] 

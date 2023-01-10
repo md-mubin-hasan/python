@@ -422,7 +422,7 @@ aa = np.array([
                 [34, 35, 36, 37],
                 [45, 46, 47, 48]
                 ])
-aa.shape    # (4,4)
+aa.shape    # (4,4) == (outer dimension, inner dimension)  
 
 aaa_matrixmul1 = np.matmul(aa, a)
 aaa_matrixmul2 = aa @ a
@@ -436,3 +436,38 @@ urllib.request.urlretrieve(
     'https://gist.github.com/BirajCoder/a4ffcb76fd6fb221d76ac2ee2b8584e9/raw/4054f90adfd361b7aa4255e99c2e874664094cea/climate.csv', 
     'climate.txt')
 ```
+
+> Converting txt into array
+
+```
+data = np.genfromtxt('filename.txt', delimiter = ',', skip_header = 1)
+```
+
+> Writing txt into a file
+
+```
+np.savetxt('filename.txt', variable_name, fmt = '%.2f', delimiter = ',', header = 'header1, header2, header3', comments = '')
+```
+
+> Reshaping the array
+
+```
+a_reshaped1 = a.reshape(2, 2)
+a_reshaped2 = a.reshape(4, 1)   # (outer dimension, inner dimension) == (row, column)
+```
+
+> Concatenate function
+
+```
+a = np.array([[1,2],[3,4]])     #(2, 2)
+b = np.array([[5,6]])           #(1, 2)
+
+concated1 = np.concatenate((a,b), axis = 0)     #a and b has to be same dimensional array
+concated2 = np.concatenate((a,b.T), axis = 1)   #np.concatenate((a, b.reshape(2,1)), axis = 1)
+concated3 = np.concatenate((a,b), axis = None)  #a and b does not need to be in same dimension
+```
+
+> Mathematics: `np.sum`, `np.exp`, `np.round`, arithemtic operators
+> Array manipulation: `np.reshape`, `np.stack`, `np.concatenate`, `np.split`
+> Linear Algebra: `np.matmul`, `np.dot`, `np.transpose`, `np.eigvals`
+> Statistics: `np.mean`, `np.median`, `np.std`, `np.max`

@@ -479,9 +479,11 @@ concated3 = np.concatenate((a,b), axis = None)  #a and b does not need to be in 
 
 > Arange & Ones
 
+```
 a = np.arange(5)        # array([0, 1, 2, 3, 4])
 b = np.ones(4)          # array([1, 1, 1, 1])
 c = np.ones(3,3)        # array([[1, 1, 1],[1, 1, 1],[1, 1, 1]])
+```
 
 > Scaling
 
@@ -495,3 +497,11 @@ a1 * a2        # Element-wise multiplication
 
 Broadcasting only works if one of the arrays can be replicated to match the array's shape.
 
+```
+a = np.arange(3) + 5                # a = array([5, 6, 7]) which is array([0, 1, 2]) + array([5, 5, 5])
+a = array([0,1,2]) + 5
+b = np.ones(3,3) + np.arange(3)     # b = array([[1,2,3],[1,2,3],[1,2,3]]) which is array([[1,1,1],[1,1,1],[1,1,1]]) + array([[0,1,2],[0,1,2],[0,1,2]])
+b = array([[1,1,1],[1,1,1],[1,1,1]]) + array([0,1,2])
+c = np.arange(3).reshape(3,1) + np.arange(3)    # c = array([[0,1,2],[1,2,3],[2,3,4]]) which is array([[0,0,0],[1,1,1],[2,2,2]]) + array([[0,1,2],[0,1,2],[0,1,2]])
+c = array([[0],[1],[2]]) + array([0,1,2])
+```

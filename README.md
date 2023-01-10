@@ -477,12 +477,42 @@ concated3 = np.concatenate((a,b), axis = None)  #a and b does not need to be in 
 
 > NumPy Documentation : [numpy](https://numpy.org/doc/stable/reference/routines.html)
 
-> Arange & Ones
+> Forming arrays
 
 ```
-a = np.arange(5)        # array([0, 1, 2, 3, 4])
-b = np.ones(4)          # array([1, 1, 1, 1])
-c = np.ones(3,3)        # array([[1, 1, 1],[1, 1, 1],[1, 1, 1]])
+# Range with start, end and step
+a1 = np.arange(5)           # array([0, 1, 2, 3, 4])
+a2 = np.arange(3, 20)       # array([ 3,  4,  5,  6,  7,  8,  9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19])
+a2 = np.arange(3, 20, 4)    # array([ 3,  7, 11, 15, 19])
+
+b1 = np.ones(4)             # array([1., 1., 1., 1.])
+b2 = np.ones((4,))          # array([1., 1., 1., 1.])
+b3 = np.ones((3,3))         # array([[1., 1., 1.],[1., 1., 1.],[1., 1., 1.]])
+b4 = np.ones([2, 2, 3])     # array([[[1., 1., 1.],[1., 1., 1.]],[[1., 1., 1.],[1., 1., 1.]]])
+
+c1 = np.zeros(4)            # array([0., 0., 0., 0.])
+c2 = np.zeros((4,))         # array([0., 0., 0., 0.])
+c3 = np.zeros((4,2))        # array([[0., 0.],[0., 0.],[0., 0.],[0., 0.]])
+c4 = np.zeros([2,2,3])      # array([[[0., 0., 0.],[0., 0., 0.]],[[0., 0., 0.],[0., 0., 0.]]])
+
+# Identity Matrix
+d = np.eye(3)               # array([[1., 0., 0.],[0., 1., 0.],[0., 0., 1.]])
+
+# Random Vector forms from uniform distribution [0,1)
+e1 = np.random.rand(4)          # array([0.67720034, 0.78128189, 0.9746822 , 0.66433952])
+# Random matrix
+e2 = np.random.rand(2,3)        # array([[0.21728667, 0.87190509, 0.89748379],[0.47179849, 0.83554905, 0.86015455]])
+
+f1 = np.random.randn(4)         # standard normal distribution (includes negative numbers) # array([-0.46426101,  0.36486801,  1.03339286,  1.29384229])
+f2 = np.random.randn(2,3)       # array([[ 1.33146919, -1.95268722,  1.55484275],[ 0.71057842, -0.46610497,  1.37420616]])
+
+# a n-dimensional array with a specific number
+g1 = np.full([2,3], 20)
+g2 = np.full([2, 3, 4], 21)
+g3 = np.full([2,3,4,5], 22)
+
+# Equally spaced numbers in a range
+h1 = np.linspace(3, 18, 7)      # array([ 3. ,  5.5,  8. , 10.5, 13. , 15.5, 18. ])
 ```
 
 > Scaling
@@ -500,8 +530,45 @@ Broadcasting only works if one of the arrays can be replicated to match the arra
 ```
 a = np.arange(3) + 5                # a = array([5, 6, 7]) which is array([0, 1, 2]) + array([5, 5, 5])
 a = array([0,1,2]) + 5
-b = np.ones(3,3) + np.arange(3)     # b = array([[1,2,3],[1,2,3],[1,2,3]]) which is array([[1,1,1],[1,1,1],[1,1,1]]) + array([[0,1,2],[0,1,2],[0,1,2]])
+b = np.ones((3,3)) + np.arange(3)     # b = array([[1,2,3],[1,2,3],[1,2,3]]) which is array([[1,1,1],[1,1,1],[1,1,1]]) + array([[0,1,2],[0,1,2],[0,1,2]])
 b = array([[1,1,1],[1,1,1],[1,1,1]]) + array([0,1,2])
 c = np.arange(3).reshape(3,1) + np.arange(3)    # c = array([[0,1,2],[1,2,3],[2,3,4]]) which is array([[0,0,0],[1,1,1],[2,2,2]]) + array([[0,1,2],[0,1,2],[0,1,2]])
 c = array([[0],[1],[2]]) + array([0,1,2])
+```
+
+> Array Comparison 
+
+```
+arr1 = np.array([[1, 2, 3],[3, 4, 5]])
+arr2 = np.array([[2, 2, 3],[1, 2, 5]])
+
+mb = arr1 == arr2           # mb = array([[False, True, True],[False, False, True]])  same rule applies to other comparison operators such as !=, >, >=, <, <=
+ms = (arr1 == arr2).sum()
+```
+
+> Array Indexing & Slicing
+
+```
+arr3 = np.array(
+   [[[11, 12, 13, 14], 
+     [13, 14, 15, 19]],     
+    [[15, 16, 17, 21], 
+     [63, 92, 36, 18]], 
+    [[98, 32, 81, 23],      
+     [17, 18, 19.5, 43]]])
+arr3.shape      # (3, 2, 4)
+
+a = arr3[0]             # a = array([[11., 12., 13., 14.],[13., 14., 15., 19.]])
+b = arr3[0][0]          # b = array([11., 12., 13., 14.]) same as arr3[0, 0]
+c = arr3[0][0][0]       # c = 11.0 same as arr3[0,0,0]
+
+# Subarray using ranges
+aa = arr3[1:, :1, :3]       # aa = array([[[15,16,17]],[[98,32,81]]])
+aa.shape                    # (2,1,3)
+
+# Mixing indices and ranges
+ab = arr3[1:, 0, :3]        # ab = array([[15,16,17]],[[98,32,81]])
+ab.shape                    # (2,3)
+ac = arr3[1:, 0, 0]         # ac = array([15, 98])
+ac.shape                    # (2,)
 ```

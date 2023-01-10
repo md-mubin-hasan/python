@@ -476,3 +476,22 @@ concated3 = np.concatenate((a,b), axis = None)  #a and b does not need to be in 
 > Statistics: `np.mean`, `np.median`, `np.std`, `np.max`
 
 > NumPy Documentation : [numpy](https://numpy.org/doc/stable/reference/routines.html)
+
+> Arange & Ones
+
+a = np.arange(5)        # array([0, 1, 2, 3, 4])
+b = np.ones(4)          # array([1, 1, 1, 1])
+c = np.ones(3,3)        # array([[1, 1, 1],[1, 1, 1],[1, 1, 1]])
+
+> Scaling
+
+a1 + 2         # Adds 2 to each element of the the array a1
+a1 - 2         # Subtracts 2 from each element of the array a1
+a1 % 2         # Find the modulus from each element of the array a1
+a1 / 2         # Division by scalar
+a1 * a2        # Element-wise multiplication
+
+> Broadcasting
+
+Broadcasting only works if one of the arrays can be replicated to match the array's shape.
+

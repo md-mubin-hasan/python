@@ -16,6 +16,8 @@ To find the execution time
 ```
 %%time
 ```
+To see what a particular function does, we can press SHIFT+Tab and check
+
 ## Distinction between *statement* and *expression* in **Python**
 
 > **Statements:** A statement is an instruction that can be executed. Every line of code we have written so far is a statement e.g. assigning a variable, calling a function, conditional statements using `if`, `else`, and `elif`, loops using `for` and `while` etc.

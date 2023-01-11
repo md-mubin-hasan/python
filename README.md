@@ -112,6 +112,8 @@ print(text10)
 
 print("""If a grocery store sells ice bags at $ {} per bag, with a profit margin of {} %, 
 then the total profit it makes by selling {} ice bags is $ {}.""".format(cost_of_ice_bag, profit_margin*100, number_of_bags, total_profit))
+print('This is a value {:.0f}'.format(32.3456))         # 32
+print('This is a value {:.1f}'.format(32.3456))         # 32.3
 ```
 
 > List
@@ -690,3 +692,100 @@ ac.shape                    # (2,)
 ```
 
 ## Pandas
+
+To install Panda module
+
+```
+!pip install pandas --upgrade --quiet
+```
+
+> Initial code
+
+```
+import panda as pd
+
+covid_df = pd.read_csv('filename.csv')
+
+type(covid_df)          # Data type is DataFrame, full form is pandas.core.frame.DataFrame
+print(covid_df)         # The data is printed as a table, together with indexing
+covid_df.info()         # Summary of the data is returned, (Data type, Column Header, Number of Rows and many more)
+covid_df.describe()     # Statistical information for numerical columns (mean, standard deviation, minimum/maximum values, and the number of non-empty values)
+covid_df.columns        # Get the list of column names
+covid_df.shape          # Get the number of rows & columns as a tuple
+```
+
+> Retrieving data from DataFrame
+
+Panda data storing format is similar to a dictionary, not a list of dictionary
+```
+a = covid_df['date']        # a series of data is stored in a
+```
+Each column is represented using a data structure called `Series`
+```
+type(covid_df['date'])                          # pandas.core.series.Series
+covid_df['new_cases'][246]                      # Retrieving specific element
+covid_df.at[246, 'new_cases']                   # Retrieving specific element by at method
+covid_df.date                                   # Pandas also allows accessing columns as properties of the dataframe using the `.` notation instead of `[]`
+covid_df[['date', 'new_cases']]                 # Retrieving a list of columns within the indexing notation []
+cases_df = covid_df[['date', 'new_cases']]      # cases_df and covid_df both point to the same data in the computer's memory. Changing one will change the other.
+covid_df_copy = covid_df.copy()                 # covid_df_copy is completely separate from covid_df
+covid_df.loc[243]                               # To access a specific row of data
+covid_df.loc[108:113]
+type(covid_df.loc[243])                         # pandas.core.series.Series
+covid_df.head(5)                                # To view the first few rows of data
+covid_df.tail(4)                                # To view the last few rows of data
+b = covid_df.at[0, 'new_tests']                 # nan is stored
+type(covid_df.at[0, 'new_tests'])               # numpy.float64
+covid_df.new_tests.first_valid_index()          # To find the first index that doesn't contain a NaN value using first_valid_index method.
+covid_df.sample(10)                             # To retrieve a random sample of rows from the data frame.
+total_cases = covid_df.new_cases.sum()          # To find the total value
+```
+
+> Querying and sorting rows 
+
+```
+high_new_cases = covid_df.new_cases > 1000          # high_new_cases is a series containing True and False boolean values
+covid_df[covid_df.new_cases > 1000]                 # Querying a subset of rows satisfying the chosen criteria using boolean expressions
+df['pos_rate'] = df.new_cases/df.new_tests          # Adding new columns by combining data from existing columns
+covid_df.drop('positive_rate')                      # Removing one or more columns from the data frame
+covid_df.drop(columns=['positive_rate'], inplace=True)
+sort_values                                         # Sorting the rows of a data frame using column values
+covid_df.sort_values('new_cases').head(10)
+covid_df.sort_values('new_deaths', ascending=False).head(10)
+covid_df.at[172, 'new_cases'] = ...                 # Replacing a value within the data frame
+```
+
+> Changing display option
+
+```
+from IPython.display import display
+with pd.option_context('display.max_rows', 100):
+    display(covid_df[covid_df.new_cases > 1000])
+```
+
+> Working with dates
+
+```
+covid_df['date'] = pd.to_datetime(covid_df.date)        # To convert it into a column of datetime datatype using the pd.to_datetime
+
+# To extract different parts of the datatime datatype using the DatetimeIndex class
+covid_df['year'] = pd.DatetimeIndex(covid_df.date).year
+covid_df['month'] = pd.DatetimeIndex(covid_df.date).month
+covid_df['day'] = pd.DatetimeIndex(covid_df.date).day
+covid_df['weekday'] = pd.DatetimeIndex(covid_df.date).weekday
+```
+
+> Finding different statistics
+
+```
+covid_df.new_cases.mean()
+covid_df[covid_df.weekday == 6].new_cases.mean()
+```
+
+> Grouping and Aggregation
+
+We have to use the groupby function to create a group for each month, select the columns we wish to aggregate, and aggregate them using the sum (any statistics) method.
+```
+covid_month_df = covid_df.groupby('month')[['new_cases', 'new_deaths', 'new_tests']].sum()
+covid_month_mean_df = covid_df.groupby('month')[['new_cases', 'new_deaths', 'new_tests']].mean()
+```

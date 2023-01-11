@@ -789,3 +789,10 @@ We have to use the groupby function to create a group for each month, select the
 covid_month_df = covid_df.groupby('month')[['new_cases', 'new_deaths', 'new_tests']].sum()
 covid_month_mean_df = covid_df.groupby('month')[['new_cases', 'new_deaths', 'new_tests']].mean()
 ```
+
+We can use the cumsum method to compute the cumulative sum of a column as a new series
+
+```
+covid_df['total_deaths'] = covid_df.new_deaths.cumsum()
+covid_df['total_tests'] = covid_df.new_tests.cumsum() + initial_tests           # NaN values in the total_tests column remain unaffected.
+```

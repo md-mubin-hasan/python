@@ -805,3 +805,12 @@ To merge two data frames, we need at least one common column.
 # To add the columns from `locations_df` into `covid_df` using the `.merge` method.
 merged_df = covid_df.merge(locations_df, on="location")
 ```
+
+> Writing back to files
+
+To write the data from the data frame into a file, we can use the to_csv function.
+
+```
+result_df.to_csv('results.csv')                 # Index column from the data frame also gets stored
+result_df.to_csv('results.csv', index=None)     # Index column from the data frame is ignored
+```

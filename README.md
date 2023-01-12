@@ -796,3 +796,12 @@ We can use the cumsum method to compute the cumulative sum of a column as a new 
 covid_df['total_deaths'] = covid_df.new_deaths.cumsum()
 covid_df['total_tests'] = covid_df.new_tests.cumsum() + initial_tests           # NaN values in the total_tests column remain unaffected.
 ```
+
+> Merging data from multiple source
+
+To merge two data frames, we need at least one common column.
+
+```
+# To add the columns from `locations_df` into `covid_df` using the `.merge` method.
+merged_df = covid_df.merge(locations_df, on="location")
+```

@@ -814,3 +814,6 @@ To write the data from the data frame into a file, we can use the to_csv functio
 result_df.to_csv('results.csv')                 # Index column from the data frame also gets stored
 result_df.to_csv('results.csv', index=None)     # Index column from the data frame is ignored
 ```
+
+## Matplotlib & Seaborn
+

@@ -952,3 +952,32 @@ plt.title("No. of Passengers (1000s)")
 sns.heatmap(flights_df)
 sns.heatmap(flights_df, fmt="d", annot=True, cmap='Blues')
 ```
+
+> Images
+
+```
+from PIL import Image
+img = Image.open('chart.jpg')
+```
+
+An image loaded using PIL is simply a 3-dimensional numpy array containing pixel intensities for the red, green & blue (RGB) channels of the image. We can convert the image into an array using `np.array`.
+
+```
+img_array = np.array(img)
+
+img_array.shape
+
+# We can display the PIL image using plt.imshow.
+plt.imshow(img) 
+
+# Turning off the axes & grid lines and showing a title
+plt.grid(False)
+plt.title('A data science meme')
+plt.axis('off')
+plt.imshow(img)
+
+# To display a part of the image
+plt.grid(False)
+plt.axis('off')
+plt.imshow(img_array[125:325,105:305])
+```

@@ -817,3 +817,78 @@ result_df.to_csv('results.csv', index=None)     # Index column from the data fra
 
 ## Matplotlib & Seaborn
 
+```
+!pip install matplotlib seaborn --upgrade --quiet
+
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline                  # Without this command, sometimes plots may show up in pop-up windows.
+```
+
+> Line Chart
+
+```
+yield_apples = [0.895, 0.91, 0.919, 0.926, 0.929, 0.931]
+years = [2010, 2011, 2012, 2013, 2014, 2015]
+plt.plot(yield_apples);                             # A semicolon (;) at the end to avoiding showing some output and display just the graph.
+
+apples = [0.895, 0.91, 0.919, 0.926, 0.929, 0.931, 0.934, 0.936, 0.937, 0.9375, 0.9372, 0.939]
+oranges = [0.962, 0.941, 0.930, 0.923, 0.918, 0.908, 0.907, 0.904, 0.901, 0.898, 0.9, 0.896 ]
+years = range(2000, 2012)
+plt.plot(years, apples)                         # Customizing the X-axis
+plt.plot(years, oranges)                        # Plotting Multiple Lines in a single chart
+plt.xlabel('Year')                              # Axis Labels
+plt.ylabel('Yield (tons per hectare)')          
+plt.title("Crop Yields in Kanto")               # Chart Title
+plt.legend(['Apples', 'Oranges'])               # Chart Legend
+
+plt.plot(years, apples, marker='o')             # Line Markers
+```
+
+The `plt.plot` function supports many arguments for styling lines and markers:
+
+`color` or `c`: Set the color of the line (supported colors)
+`linestyle` or `ls`: Choose between a solid or dashed line
+`linewidth` or `lw`: Set the width of a line
+`markersize` or `ms`: Set the size of markers
+`markeredgecolor` or `mec`: Set the edge color for markers
+`markeredgewidth` or `mew`: Set the edge width for markers
+`markerfacecolor` or `mfc`: Set the fill color for markers
+`alpha`: Opacity of the plot
+
+```
+plt.plot(years, apples, marker='s', c='b', ls='-', lw=2, ms=8, mew=2, mec='navy')
+plt.plot(years, oranges, marker='o', c='r', ls='--', lw=3, ms=10, alpha=.5)
+```
+
+The `fmt` argument provides a shorthand for specifying the marker shape, line style, and line color. It can be provided as the third argument to `plt.plot`.
+
+    `fmt` = '[marker][line][color]'
+
+```
+plt.plot(years, oranges, 'o--r')        # This is for dashed line, for solid line use 'o-r'
+plt.plot(years, oranges, 'or')          # Only markers are drawn
+```
+
+> Changing the Figure Size
+
+```
+plt.figure(figsize=(12, 6))
+```
+
+> Improving Default Styles using Seaborn globally ([Full list](https://seaborn.pydata.org/generated/seaborn.set_style.html))
+
+```
+sns.set_style("whitegrid")
+sns.set_style("darkgrid")
+```
+
+We can also edit default styles directly by modifying the `matplotlib.rcParams` dictionary.
+
+```
+import matplotlib
+
+matplotlib.rcParams['font.size'] = 14
+matplotlib.rcParams['figure.figsize'] = (9, 5)
+matplotlib.rcParams['figure.facecolor'] = '#00000000'
+```

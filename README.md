@@ -981,3 +981,56 @@ plt.grid(False)
 plt.axis('off')
 plt.imshow(img_array[125:325,105:305])
 ```
+
+> Plotting multiple charts in a grid
+
+```
+sns.pairplot(flowers_df, hue='species');        # Pair plots with Seaborn
+sns.pairplot(tips_df, hue='sex');
+```
+
+```
+fig, axes = plt.subplots(2, 3, figsize=(16, 8))
+
+# Use the axes for plotting
+axes[0,0].plot(years, apples, 's-b')
+axes[0,0].plot(years, oranges, 'o--r')
+axes[0,0].set_xlabel('Year')
+axes[0,0].set_ylabel('Yield (tons per hectare)')
+axes[0,0].legend(['Apples', 'Oranges']);
+axes[0,0].set_title('Crop Yields in Kanto')
+
+
+# Pass the axes into seaborn
+axes[0,1].set_title('Sepal Length vs. Sepal Width')
+sns.scatterplot(x=flowers_df.sepal_length, 
+                y=flowers_df.sepal_width, 
+                hue=flowers_df.species, 
+                s=100, 
+                ax=axes[0,1]);
+
+# Use the axes for plotting
+axes[0,2].set_title('Distribution of Sepal Width')
+axes[0,2].hist([setosa_df.sepal_width, versicolor_df.sepal_width, virginica_df.sepal_width], 
+         bins=np.arange(2, 5, 0.25), 
+         stacked=True);
+
+axes[0,2].legend(['Setosa', 'Versicolor', 'Virginica']);
+
+# Pass the axes into seaborn
+axes[1,0].set_title('Restaurant bills')
+sns.barplot(x='day', y='total_bill', hue='sex', data=tips_df, ax=axes[1,0]);
+
+# Pass the axes into seaborn
+axes[1,1].set_title('Flight traffic')
+sns.heatmap(flights_df, cmap='Blues', ax=axes[1,1]);
+
+# Plot an image using the axes
+axes[1,2].set_title('Data Science Meme')
+axes[1,2].imshow(img)
+axes[1,2].grid(False)
+axes[1,2].set_xticks([])
+axes[1,2].set_yticks([])
+
+plt.tight_layout(pad=2)
+```

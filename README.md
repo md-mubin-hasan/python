@@ -943,3 +943,12 @@ tips_df = sns.load_dataset("tips");                 # Another sample dataset inc
 sns.barplot(x='day', y='total_bill', data=tips_df);
 sns.barplot(x='day', y='total_bill', hue='sex', data=tips_df);      # We can make the bars horizontal simply by switching the axes.
 ```
+
+> Heatmap
+
+```
+flights_df = sns.load_dataset("flights").pivot("month", "year", "passengers")       # Another sample dataset included with Seaborn, called flights
+plt.title("No. of Passengers (1000s)")
+sns.heatmap(flights_df)
+sns.heatmap(flights_df, fmt="d", annot=True, cmap='Blues')
+```

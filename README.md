@@ -892,3 +892,20 @@ matplotlib.rcParams['font.size'] = 14
 matplotlib.rcParams['figure.figsize'] = (9, 5)
 matplotlib.rcParams['figure.facecolor'] = '#00000000'
 ```
+
+> Scatter Plot
+
+The Iris dataset is included with the Seaborn library and can be loaded as a Pandas data frame.
+
+```
+flowers_df = sns.load_dataset("iris")
+flowers_df.species.unique()
+plt.plot(flowers_df.sepal_length, flowers_df.sepal_width);
+
+sns.scatterplot(x=flowers_df.sepal_length, y=flowers_df.sepal_width);
+sns.scatterplot(x=flowers_df.sepal_length, y=flowers_df.sepal_width, hue=flowers_df.species, s=100);        # We can color the dots using the flower species as a hue.
+plt.figure(figsize=(12, 6))                 # Customizing Seaborn Figures
+plt.title('Sepal Dimensions')
+
+sns.scatterplot(x='sepal_length', y='sepal_width', hue='species',s=100, data=flowers_df);       # Seaborn has in-built support for Pandas data frames
+```

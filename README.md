@@ -929,3 +929,17 @@ plt.hist(versicolor_df.sepal_width, alpha=0.4, bins=np.arange(2, 5, 0.25));
 plt.hist([setosa_df.sepal_width, versicolor_df.sepal_width, virginica_df.sepal_width], bins=np.arange(2, 5, 0.25), stacked=True)
 plt.legend(['Setosa', 'Versicolor', 'Virginica']);
 ```
+
+> Bar Chart
+
+```
+plt.bar(years, oranges);
+
+plt.bar(years, apples)
+plt.bar(years, oranges, bottom=apples);
+
+# Bar Plots with Averages
+tips_df = sns.load_dataset("tips");                 # Another sample dataset included with Seaborn, called tips
+sns.barplot(x='day', y='total_bill', data=tips_df);
+sns.barplot(x='day', y='total_bill', hue='sex', data=tips_df);      # We can make the bars horizontal simply by switching the axes.
+```

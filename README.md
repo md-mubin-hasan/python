@@ -909,3 +909,23 @@ plt.title('Sepal Dimensions')
 
 sns.scatterplot(x='sepal_length', y='sepal_width', hue='species',s=100, data=flowers_df);       # Seaborn has in-built support for Pandas data frames
 ```
+
+> Histogram
+
+```
+plt.title("Distribution of Sepal Width")
+plt.hist(flowers_df.sepal_width);
+
+plt.hist(flowers_df.sepal_width, bins=5);           # Controlling the size and number of bins
+
+import numpy as np
+plt.hist(flowers_df.sepal_width, bins=np.arange(2, 5, 0.25));
+plt.hist(flowers_df.sepal_width, bins=[1, 3, 4, 4.5]);
+
+# Multiple Histograms
+plt.hist(setosa_df.sepal_width, alpha=0.4, bins=np.arange(2, 5, 0.25))
+plt.hist(versicolor_df.sepal_width, alpha=0.4, bins=np.arange(2, 5, 0.25));
+
+plt.hist([setosa_df.sepal_width, versicolor_df.sepal_width, virginica_df.sepal_width], bins=np.arange(2, 5, 0.25), stacked=True)
+plt.legend(['Setosa', 'Versicolor', 'Virginica']);
+```

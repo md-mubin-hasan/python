@@ -1,0 +1,57 @@
+import turtle
+import random
+colors = ["AntiqueWhite1","DarkSeaGreen1","gainsboro","lavender", "LightBlue1","azure3","azure4","aquamarine4","bisque4","coral3", "cyan2", "DarkGrey"]
+count = random.randint(80, 90)
+turtle.speed(0)
+mubin = ["r", "c", "sr"]
+while count > 0:
+    hasan = random.choice(mubin)
+    if hasan == "r":
+        x = random.randint(-200, 200)
+        y = random.randint(-200, 200)
+        h = random.randint(1, 100)
+        w = random.randint(20, 200)
+        turtle.up()
+        turtle.color(random.choice(colors),random.choice(colors))
+        turtle.goto(x,y)
+        turtle.down()
+        turtle.begin_fill()
+        turtle.goto(x+w,y)
+        turtle.goto(x+w,y-h)
+        turtle.goto(x,y-h)
+        turtle.goto(x,y)
+        turtle.end_fill()
+    elif hasan == "sr":
+        x = random.randint(-200, 200)
+        y = random.randint(-200, 200)
+        h = random.randint(1, 100)
+        w = random.randint(20, 200)
+        turtle.up()
+        turtle.color(random.choice(colors),random.choice(colors))
+        turtle.goto(x,y)
+        turtle.down()
+        agl = random.randint(5,90)
+        turtle.begin_fill()
+        turtle.left(agl)
+        turtle.forward(w)
+        turtle.left(90)
+        turtle.forward(h)
+        turtle.left(90)
+        turtle.forward(w)
+        turtle.left(90)
+        turtle.forward(h)
+        turtle.end_fill()
+    else:
+        x = random.randint(-250, 250)
+        y = random.randint(-250, 250)
+        r = random.randint(50, 100)
+        turtle.up()
+        turtle.color(random.choice(colors),random.choice(colors))
+        turtle.goto(x,y)
+        turtle.down()
+        turtle.begin_fill()
+        turtle.circle(r)
+        turtle.end_fill()
+    count = count -1
+
+turtle.done()

@@ -1,0 +1,37 @@
+int(len(mylist)/2)
+int() dumps the decimal part
+
+round(len(mylist)/2)
+round(8.5) rounds to nearest even number
+better not to use round()
+because round(6.5) = 6
+round(7.5) = 8
+
+mylist[-1] //the last element
+
+def happycalvin():
+    print("O yea happy")
+int("90") // it works and outputs 90
+int(90.9) //outputs 90
+float(80) //outputs 80.0
+float("80") //outputs 80.0
+float("80.6") //outputs 80.6
+
+x = input("?") //input 50.0  //python takes input as text when there is decimal point
+print(int(x)) //python crushes
+
+we should do this
+x int(float(input("?")))
+
+turtle.reset() // goes to the default turtle options?
+it resets everything
+
+any number other than 0 is true
+however -0 is False
+
+An empty list [], tuple (), or string "" means False
+-Non-empty list [], tuple (), or string means True
+
+3**2 = 9
+8//3 = 2
+

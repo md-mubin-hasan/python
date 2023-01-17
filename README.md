@@ -6,6 +6,7 @@ This is the list of commands which I know in Python language
 
 ```
 help(variable_name.methodname)
+pydoc <commmand>
 ```
 > Jupyter Notebook / Jupyterlab
 

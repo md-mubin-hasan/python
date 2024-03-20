@@ -49,7 +49,7 @@ turtle.onkeypress(loadPositions, "l")
 
 turtle.listen()
 turtle.mainloop()
-              
+
 # This example lines up columns with tab characters
 
 print("Pythagoras' constant is\t1.41421")

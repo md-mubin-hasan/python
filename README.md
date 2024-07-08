@@ -203,6 +203,18 @@ print(cube(5))
 print(lambda_cube(5))
 ```
 
+## Testing cases
+
+The $\verb|assert|$ statement is commonly used in testing as in the example below. The first argument is the boolean expression you want to be true, and the second argument is the error message printed if the expression is evaluated as false (meaning the test failed).
+```
+def sum_of_proper_divs(n):
+    """A faulty implementation"""
+    return n
+
+assert sum_of_proper_divs(28) == 28, "TestCase n=28 expected: 28, got: {}".format(sum_of_proper_divs(28))
+assert sum_of_proper_divs(12) == 16, "TestCase n=12 expected: 16, got: {}".format(sum_of_proper_divs(12))
+```
+
 ## Ternary Operators
 ```
 a,b = 1, 2
